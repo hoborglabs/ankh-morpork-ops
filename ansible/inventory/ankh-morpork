@@ -1,0 +1,5 @@
+dev01
+dev02 ansible_ssh_host=192.168.1.26 ansible_ssh_user=root
+
+[dev]
+dev02

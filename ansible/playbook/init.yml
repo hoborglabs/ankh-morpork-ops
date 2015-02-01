@@ -1,0 +1,33 @@
+---
+##
+# Use this playbook to ensure that all servers
+#
+
+- name: Init default CentOS
+  hosts: "{{ hosts | d('none') }}"
+
+  vars_files:
+    - ../vars/ssh_keys.yml
+
+  tasks:
+    - name: Ensure user 'ansible' is present
+      user:
+        name: ansible
+
+    - name: Ensure basic packages are installed
+      yum:
+        name: "{{ item }}"
+      with_items:
+        - vim
+
+    - name: Ensure admins have root access to this box
+      authorized_key:
+        user: root
+        key: "{{ item }}"
+      with_items: ssh_keys.group.admins
+
+    - name: Ensure admins have access to this box as 'ansible' user
+      authorized_key:
+        user: ansible
+        key: "{{ item }}"
+      with_items: ssh_keys.group.admins

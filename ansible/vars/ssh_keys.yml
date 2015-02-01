@@ -1,0 +1,4 @@
+ssh_keys:
+  group:
+    admins:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCe5g3mLfNrIiHIbBodO32bKHr1ZFk8b2/OxkWrKavlM3095NhRDlckJn+4+yvb6ctQ/Eo7nQdkieCoZdJ4PcUJXrdLe/05MawLHzwTRyqPJsooxlgZHRDf9RrYRZoeCmA+ydgYmLAOT6ntEsIAEOzM2GQ++/lHn5Vdzssbf/5jE+JNwxaq1z+G72g/hSttngpOHQHrte135Y4NOlAS4JROrCvBWeyt84UHUacihyvt9+wzCz1JkKFPru1MDmThed0bMA6u/5jcjlSP82UKu96GXuFmh4pwbSv9i90hqjJGw9hLdZ1fqXqzkIxebeQLSABIOln2CMKJCmkTUxEb4KI3 wojtek.oledzki@gmail.com
