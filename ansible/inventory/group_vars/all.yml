@@ -1,0 +1,6 @@
+---
+
+users_and_groups:
+  users:
+    - name: wojtek.oledzki
+      ssh_key_file: files/ssh_keys/wojtek.oledzki

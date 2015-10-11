@@ -1,0 +1,30 @@
+---
+
+- name: Setup users
+  hosts: "{{ hosts }}"
+  gather_facts: no
+
+  vars_files:
+    - ../vars/ankh_morpork.yml
+
+  pre_tasks:
+    - name: Install Ansible dependencies
+      sudo: yes
+      yum:
+        name: python-simplejson
+
+  roles:
+    - role: vs-ansible.users_and_groups
+
+  tasks:
+    - name: Ensure basic packages are installed
+      sudo: yes
+      yum:
+        name: "{{ item }}"
+      with_items:
+        - bind-utils
+        - curl
+        - git
+        - screen
+        - vim-enhanced
+        - vim-minimal
