@@ -1,0 +1,20 @@
+---
+
+- name: Go CD Server
+  hosts: "{{ hosts }}"
+
+  pre_tasks:
+    - name: Update apt
+      become: yes
+      apt:
+        update_cache: yes
+
+  roles:
+    - role: ansible-city.swap
+      swap:
+        blocks_count: 2048
+        sysctl:
+          - name: vm.swappiness
+            value: 90
+
+    - role: ansible-city.gocd_server

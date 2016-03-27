@@ -1,4 +1,13 @@
 ---
 
-- src: vs-ansible.users_and_groups
+- src: ansible-city.users_and_groups
+  version: v1.0
+
+- src: ansible-city.gocd_agent
+  version: v1.0
+
+- src: ansible-city.gocd_server
+  version: v1.0
+
+- src: ansible-city.swap
   version: v1.0

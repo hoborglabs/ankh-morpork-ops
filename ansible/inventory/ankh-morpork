@@ -1,5 +1,3 @@
-home01 ansible_ssh_host=192.168.1.18 ansible_ssh_user=toor
-dev02 ansible_ssh_host=192.168.1.26 ansible_ssh_user=root
-
-[dev]
-dev02
+gocd_server ansible_ssh_host=192.168.1.37 ansible_ssh_user=root
+gocd_agent ansible_ssh_host=192.168.1.38 ansible_ssh_user=root
+dmz ansible_ssh_host=192.168.1.39 ansible_ssh_user=root
