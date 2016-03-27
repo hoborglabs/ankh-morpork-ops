@@ -1,5 +1,8 @@
 ---
 
+- name: Base
+  include: "{{ pwd }}/ansible/playbook/base.yml"
+
 - name: DMZ Server
   hosts: "{{ hosts }}"
 
@@ -16,23 +19,3 @@
         sysctl:
           - name: vm.swappiness
             value: 90
-
-    - role: ansible-city.users_and_groups
-      users_and_groups:
-        users_folder: "{{ pwd }}/ansible/files/users_and_groups/users"
-        groups:
-          - name: admin
-        users:
-          - name: maciek.oledzki
-            ssh_key: "{{ pwd }}/ansible/files/users_and_groups/users/maciek.oledzki/id_rsa.pub"
-            groups:
-              - admin
-          - name: wojtek.oledzki
-            ssh_key: "{{ pwd }}/ansible/files/users_and_groups/users/wojtek.oledzki/id_rsa.pub"
-            groups:
-              - admin
-        sudoers:
-          - name: admin
-            user: "%admin"
-            runas: "ALL=(ALL)"
-            commands: "NOPASSWD: ALL"

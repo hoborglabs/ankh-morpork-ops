@@ -1,5 +1,8 @@
 ---
 
+- name: Base
+  include: "{{ pwd }}/ansible/playbook/base.yml"
+
 - name: Go CD Server
   hosts: "{{ hosts }}"
 

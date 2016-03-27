@@ -9,22 +9,44 @@
 
   pre_tasks:
     - name: Install Ansible dependencies
-      sudo: yes
-      yum:
+      become: yes
+      apt:
         name: python-simplejson
+      tags:
+        - build
 
   roles:
-    - role: vs-ansible.users_and_groups
+    - role: ansible-city.users_and_groups
+      users_and_groups:
+        users_folder: "{{ pwd }}/ansible/files/users_and_groups/users"
+        groups:
+          - name: admin
+        users:
+          - name: maciek.oledzki
+            ssh_key: "{{ pwd }}/ansible/files/users_and_groups/users/maciek.oledzki/id_rsa.pub"
+            groups:
+              - admin
+          - name: wojtek.oledzki
+            ssh_key: "{{ pwd }}/ansible/files/users_and_groups/users/wojtek.oledzki/id_rsa.pub"
+            groups:
+              - admin
+        sudoers:
+          - name: admin
+            user: "%admin"
+            runas: "ALL=(ALL)"
+            commands: "NOPASSWD: ALL"
 
   tasks:
     - name: Ensure basic packages are installed
-      sudo: yes
-      yum:
+      become: yes
+      apt:
         name: "{{ item }}"
       with_items:
-        - bind-utils
         - curl
+        - dnsutils
         - git
+        - htop
         - screen
-        - vim-enhanced
-        - vim-minimal
+        - tree
+      tags:
+        - build
